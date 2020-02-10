@@ -1,0 +1,24 @@
+<% content_for :secondary_nav do %>
+  <div class="secondary-nav">
+    <div class="secondary-nav__title">
+      <%= t ".title" %>
+    </div>
+    <ul>
+      <li
+        <% if is_active_link?(decidim_admin_stats.dashboard_index_path) %> class="is-active"<% end %>>
+        <%= link_to "Dashboard", decidim_admin_stats.dashboard_index_path %>
+      </li>
+
+      <% participatory_spaces.each do |participatory_space| %>
+        <li <% if is_active_link?(decidim_admin_stats.dashboard_path(participatory_space)) %> class="is-active"<% end %>>
+          <%= link_to translated_attribute(participatory_space.title), decidim_admin_stats.dashboard_path(participatory_space) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= render "layouts/decidim/admin/application" do %>
+  <%= yield %>
+  <%= stylesheet_link_tag "decidim/admin_stats/stats" %>
+<% end %>

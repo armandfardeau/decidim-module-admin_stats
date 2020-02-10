@@ -1,0 +1,15 @@
+---
+en:
+  layouts:
+    decidim:
+      admin_stats:
+        admin:
+          stats:
+            title: Dashboard admin stats
+  decidim:
+    admin_stats:
+      menu:
+        admin_stats: Admin stats
+    components:
+      admin_stats:
+        name: AdminStats
